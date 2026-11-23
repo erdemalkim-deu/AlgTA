@@ -1,0 +1,264 @@
+@import url("ortak.css");   /* ortak ders temeli: ~/.claude/ders-tasarim/ (uygula.py kopyalar) */
+/* Algoritma Analizi ve Tasarımı — ortak slayt stilleri */
+:root {
+  --r-main-font: "Source Sans Pro", "Noto Sans", "Segoe UI", "DejaVu Sans", "Helvetica Neue", Arial, sans-serif;
+  --r-heading-font: "Source Sans Pro", "Noto Sans", "Segoe UI", "DejaVu Sans", "Helvetica Neue", Arial, sans-serif;
+  --r-code-font: "JetBrains Mono", "Fira Code", "DejaVu Sans Mono", Consolas, monospace;
+  --r-main-font-size: 30px;
+  --r-heading-color: #12355b;
+  --r-heading-text-transform: none;
+  --r-heading1-size: 2.0em;
+  --r-heading2-size: 1.45em;
+  --r-heading3-size: 1.15em;
+  --r-link-color: #1a5fb4;
+  --vurgu: #c0392b;
+  --mavi: #1a5fb4;
+  --yesil: #2e7d32;
+  --gri: #5e6b78;
+  --kutu-bg: #f4f7fb;
+  --kutu-kenar: #c9d6e6;
+  --editor-bg: #1e2127;
+}
+
+.reveal { font-family: var(--r-main-font); }
+.reveal .slides { text-align: left; }
+.reveal .slides section { line-height: 1.35; }
+.reveal h1, .reveal h2, .reveal h3, .reveal h4 { font-weight: 700; letter-spacing: -0.01em; margin-bottom: 0.45em; }
+.reveal h2 { border-bottom: 3px solid var(--kutu-kenar); padding-bottom: 0.15em; }
+.reveal .slides section.baslik-slayt, .reveal .slides section.baslik-slayt h1, .reveal .slides section.baslik-slayt h2 { text-align: center; border: 0; }
+.reveal ul, .reveal ol { display: block; margin-left: 1.1em; }
+.reveal li { margin: 0.18em 0; }
+.reveal li > ul, .reveal li > ol { font-size: 0.92em; }
+.reveal p { margin: 0.45em 0; }
+.reveal small, .reveal .kucuk { font-size: 0.75em; color: var(--gri); }
+.reveal .orta { text-align: center; }
+.reveal .vurgu { color: var(--vurgu); font-weight: 600; }
+.reveal .mavi { color: var(--mavi); }
+.reveal .yesil { color: var(--yesil); }
+.reveal code { font-family: var(--r-code-font); font-size: 0.88em; background: #eef2f7; padding: 0.05em 0.25em; border-radius: 4px; }
+.reveal pre { width: 100%; box-shadow: none; font-size: 0.6em; }
+.reveal pre code { background: #f6f8fa; border: 1px solid #dde3ea; border-radius: 6px; padding: 0.6em 0.8em; max-height: 560px; }
+.reveal pre.yalanci-kod code { background: #fbfaf4; border-color: #e3dcc0; }
+
+/* Uzun içerikli slaytlar için kaydırma */
+.reveal .slides section.kaydir { overflow-y: auto !important; max-height: 100%; }
+
+/* İki sütun */
+.reveal .iki-sutun { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2em; align-items: start; }
+.reveal .iki-sutun > * { min-width: 0; }
+.reveal .iki-sutun.genis-sol { grid-template-columns: 1.5fr 1fr; }
+.reveal .iki-sutun.genis-sag { grid-template-columns: 1fr 1.5fr; }
+
+/* Kutular: --k (vurgu rengi), --kb (arka plan), --kk (kenar) */
+.reveal .kutu { --k: var(--mavi); --kb: var(--kutu-bg); --kk: var(--kutu-kenar); background: var(--kb); border: 1px solid var(--kk); border-left: 6px solid var(--k); border-radius: 6px; padding: 0.45em 0.8em; margin: 0.5em 0; }
+.reveal .kutu > :first-child { margin-top: 0; }
+.reveal .kutu > :last-child { margin-bottom: 0; }
+.reveal .kutu .kutu-baslik { display: block; font-weight: 700; color: var(--k); margin-bottom: 0.2em; }
+.reveal .kutu.teorem { --k: #6a1b9a; --kb: #f7f2fb; --kk: #dccbe8; }
+.reveal .kutu.ispat { --k: var(--gri); --kb: #fafafa; --kk: #e1e1e1; }
+.reveal .kutu.ispat::after { content: "∎"; display: block; text-align: right; color: var(--gri); }
+.reveal .kutu.ornek { --k: var(--yesil); --kb: #f2f8f2; --kk: #cfe3cf; }
+.reveal .kutu.uyari { --k: var(--vurgu); --kb: #fdf3f2; --kk: #f0cdc9; }
+.reveal .kutu.soru { --k: #b36b00; --kb: #fff8ec; --kk: #f1dcb4; }
+.reveal .kutu.cozum { --k: var(--yesil); --kb: #f5fbf5; --kk: #cfe3cf; }
+.reveal .kutu.ipucu { --k: #00838f; --kb: #effafb; --kk: #bfe3e6; }
+
+/* Bölüm/atıf etiketleri */
+.reveal .etiket { display: inline-block; font-size: 0.55em; font-weight: 700; padding: 0.15em 0.6em; border-radius: 999px; vertical-align: middle; margin-left: 0.4em; background: #e8eef7; color: var(--mavi); }
+.reveal .etiket.poa { background: #fff1d6; color: #8a5300; }
+.reveal .etiket.ek { background: #e6f4e6; color: var(--yesil); }
+.reveal .kaynak { font-size: 0.6em; color: var(--gri); margin-top: 0.8em; }
+
+/* Tablolar */
+.reveal table { border-collapse: collapse; font-size: 0.78em; margin: 0.4em auto; }
+.reveal table th, .reveal table td { border: 1px solid #cfd8e3; padding: 0.2em 0.55em; text-align: center; }
+.reveal table th { background: #eaf0f7; color: var(--r-heading-color); }
+.reveal table.sol td { text-align: left; }
+
+/* SVG şekiller */
+.reveal svg.sekil { display: block; margin: 0.3em auto; max-width: 100%; height: auto; }
+.reveal svg.sekil text { font-family: var(--r-main-font); }
+
+/* Fragment yardımcıları */
+.reveal .fragment.vurgula-kirmizi.visible { color: var(--vurgu); }
+
+/* ---------- C kod editörü bileşeni ---------- */
+.reveal .c-editor { margin: 0.3em 0; }
+.c-kutu { display: flex; flex-direction: column; border: 1px solid #2c313a; border-radius: 8px; overflow: hidden; background: var(--editor-bg); font-size: 18px; line-height: 1.4; text-align: left; box-shadow: 0 4px 14px rgba(0,0,0,0.12); }
+.c-arac { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; padding: 6px 8px; background: #2c313a; color: #d7dae0; font-family: var(--r-main-font); font-size: 15px; }
+.c-arac .c-ad { font-family: var(--r-code-font); font-weight: 600; color: #e5c07b; margin-right: auto; }
+.c-arac button, .c-arac select, .c-arac input { font: inherit; font-size: 14px; border-radius: 5px; border: 1px solid #4b5263; background: #3a404b; color: #e6e6e6; padding: 3px 9px; cursor: pointer; }
+.c-arac input { cursor: text; width: 14em; font-family: var(--r-code-font); font-size: 13px; }
+.c-arac button:hover { background: #4b5263; }
+.c-arac button.c-calistir { background: #2e7d32; border-color: #3b9c41; color: #fff; font-weight: 700; }
+.c-arac button.c-calistir:hover { background: #388e3c; }
+.c-arac button:disabled { opacity: 0.6; cursor: progress; }
+.c-govde { display: flex; min-height: 0; }
+.c-kod { flex: 1 1 60%; min-width: 0; overflow: hidden; }
+.c-kod .cm-editor { height: 100%; max-height: var(--c-yukseklik, 430px); font-size: 17px; }
+.c-kod .cm-editor .cm-scroller { font-family: var(--r-code-font); }
+.c-kod .cm-editor.cm-focused { outline: none; }
+.c-yan { display: none; flex: 1 1 40%; min-width: 0; flex-direction: column; border-left: 1px solid #3a404b; background: #15171c; }
+.c-kutu.cikti-acik .c-yan { display: flex; }
+.c-girdi-baslik, .c-cikti-baslik { font-family: var(--r-main-font); font-size: 13px; color: #9da5b4; padding: 4px 8px; background: #23272e; display: flex; justify-content: space-between; align-items: center; }
+.c-girdi { width: 100%; box-sizing: border-box; min-height: 3.2em; max-height: 7em; resize: vertical; background: #101216; color: #e6e6e6; border: 0; border-bottom: 1px solid #3a404b; font-family: var(--r-code-font); font-size: 15px; padding: 6px 8px; }
+.c-cikti { flex: 1; margin: 0; padding: 6px 8px; overflow: auto; max-height: var(--c-yukseklik, 430px); color: #e6e6e6; font-family: var(--r-code-font); font-size: 14px; line-height: 1.35; white-space: pre-wrap; word-break: break-word; background: #15171c; }
+.c-cikti .hata { color: #ff7b72; }
+.c-cikti .uyari-m { color: #e5c07b; }
+.c-cikti .bilgi { color: #7f8c98; }
+.c-cikti .basari { color: #8bd17c; }
+.c-cikti-baslik a { color: #61afef; }
+.c-kapat-yan { background: none; border: 0; color: #9da5b4; cursor: pointer; font-size: 14px; }
+
+/* Tam ekran (ölçeklenmemiş) editör katmanı */
+#c-buyuk-katman { position: fixed; inset: 0; z-index: 1000; display: none; background: rgba(10,12,16,0.92); padding: 2vh 2vw; box-sizing: border-box; }
+#c-buyuk-katman.acik { display: flex; }
+#c-buyuk-katman .c-kutu { flex: 1; font-size: 20px; }
+#c-buyuk-katman .c-govde { flex: 1; }
+#c-buyuk-katman .c-kod .cm-editor { max-height: none; height: 100%; font-size: 20px; }
+#c-buyuk-katman .c-cikti { max-height: none; font-size: 17px; }
+#c-buyuk-katman .c-kutu .c-yan { display: flex; }
+
+/* Ders sayfası üst bilgi çubuğu */
+.ders-ust { position: fixed; bottom: 8px; left: 12px; z-index: 30; font-size: 16px; font-family: var(--r-main-font); }
+.ders-ust a { color: var(--acik-accent); font-weight: 600; text-decoration: none; background: rgba(255,255,255,0.92); padding: 4px 12px; border-radius: 6px; border: 2px solid var(--acik-accent); }
+.ders-ust a:hover { background: var(--acik-accent); color: #fff; }
+
+@media print { .ders-ust { display: none; } }
+
+/* Uzun blok formüller: ders.js sığdırmaya çalışır; yine de sığmazsa yatay kaydırma */
+.reveal .katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.1em 0; }
+/* Yoğun slayt: biraz daha küçük yazı (az miktarda taşan içerik için) */
+.reveal .slides section.sik { font-size: 0.9em; }
+
+/* Kaynak etiketleri: CLRS ve Katz (UMD CMSC 451) */
+.reveal .etiket.clrs { background: #e8e1f5; color: #4a2a8a; }
+.reveal .etiket.katz { background: #ffe3e3; color: #a51c1c; }
+/* CLRS yordam adları (small caps) */
+.reveal .yordam { font-variant: small-caps; letter-spacing: 0.02em; font-weight: 600; }
+
+/* ---------- Vize hazırlık: soru üreteci slaytları ---------- */
+.reveal .slides section.vize-slayt { height: 100%; }
+.reveal .vize-ust { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+.reveal .vize-ust h2 { font-size: 1.15em; margin: 0; border: 0; padding: 0; flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.reveal .vize-alt { font-size: 0.6em; color: var(--gri); font-weight: 600; }
+.reveal .vize-arac { display: flex; align-items: center; gap: 6px; font-size: 15px; flex-wrap: nowrap; flex-shrink: 0; }
+.reveal .vize-arac button, .reveal .vize-arac input { font: inherit; font-size: 14px; border: 1px solid var(--kutu-kenar); border-radius: 6px; background: #fff; padding: 4px 10px; cursor: pointer; color: var(--r-heading-color); }
+.reveal .vize-arac button:hover { border-color: var(--mavi); }
+.reveal .vize-arac .vize-yeni { background: var(--mavi); color: #fff; border-color: var(--mavi); font-weight: 700; }
+.reveal .vize-arac input { width: 6.5em; cursor: text; }
+.reveal .vize-arac .vize-etiket { color: var(--gri); }
+.reveal .vize-arac .vize-kod { font-family: var(--r-code-font, monospace); font-size: 14px; padding: 3px 6px; border: 1px solid var(--kutu-kenar); border-radius: 6px; background: #f6f8fa; color: var(--r-heading-color); white-space: nowrap; }
+.reveal .vize-arac input.vize-no { width: 9em; }
+.reveal .vize-arac .vize-mesaj { color: var(--acik-err, #b3261e); font-size: 13px; white-space: nowrap; }
+.reveal .vize-arac label { display: flex; align-items: center; gap: 4px; color: var(--gri); }
+.reveal .vize-govde { display: grid; grid-template-columns: 43fr 57fr; gap: 14px; height: 680px; }
+.reveal .vize-govde > div { min-width: 0; overflow-y: auto; border: 1px solid var(--kutu-kenar); border-radius: 8px; padding: 10px 14px; font-size: 0.6em; line-height: 1.4; }
+.reveal .vize-soru { background: #fcfdff; }
+.reveal .vize-cozum { position: relative; background: #fafcfa; }
+.reveal .vize-soru pre { font-size: 0.95em; margin: 6px 0; }
+.reveal .vize-soru pre code, .reveal .vize-cozum pre code { max-height: none; }
+.reveal .vize-cozum pre { font-size: 0.95em; }
+.reveal .vize-adim { border-left: 4px solid var(--yesil); background: #fff; border-radius: 6px; padding: 6px 10px; margin: 0 0 10px; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+.reveal .vize-adim-b { font-weight: 700; color: var(--yesil); margin-bottom: 4px; }
+.reveal .vize-adim-no { display: inline-block; min-width: 1.6em; height: 1.6em; line-height: 1.6em; border-radius: 50%; background: var(--yesil); color: #fff; text-align: center; font-size: 0.85em; margin-right: 6px; }
+.reveal .vize-adim p { margin: 0.3em 0; }
+.reveal .vize-cozum .kutu, .reveal .vize-soru .kutu { font-size: 1em; }
+.reveal .vize-tablo { font-size: 0.92em; margin: 6px 0; }
+.reveal .vize-tablo td, .reveal .vize-tablo th { padding: 2px 7px; }
+.reveal .vize-tablo.sol td { text-align: left; }
+.reveal .vize-dizi { display: inline-flex; gap: 2px; font-family: var(--r-code-font); }
+.reveal .vize-dizi span { display: inline-block; min-width: 1.9em; padding: 1px 3px; border: 1px solid #c9d3df; border-radius: 3px; text-align: center; background: #fff; }
+.reveal .vize-dizi .v-sirali { background: #d9f2dc; border-color: #8cc896; }
+.reveal .vize-dizi .v-buyuk { background: #fde2df; border-color: #e7a59d; }
+.reveal .vize-dizi .v-pivot { background: #ffe2b3; border-color: #e0a440; font-weight: 700; }
+.reveal .vize-dizi .v-aralik { background: #dfeafb; border-color: #9db8e3; }
+.reveal .dp-tablo .dp-taban, .reveal .dp-tablo tr.dp-taban-satir td { color: var(--gri); background: #f1f3f6; }
+.reveal .dp-tablo .dp-yeni { font-weight: 700; color: var(--mavi); }
+.reveal .vize-cozum .c-editor .c-kutu { font-size: 15px; }
+.reveal .vize-kaynak { margin: 0 0 4px; }
+
+/* ======================================================================
+   Projeksiyon okunurluğu: otomatik ölçek kabı ve yüksek kontrast
+   ====================================================================== */
+.reveal .slides section > .slayt-ic { transform-origin: 0 0; width: 100%; }
+
+:root {
+  /* ortak temelin açık tema renkleri (AaT'nin koyu teması yok) */
+  --r-main-color: var(--acik-ink);
+  --r-heading-color: #0a2240;
+  --gri: var(--acik-muted);
+  --kutu-kenar: #9fb4cc;
+  --mavi: var(--acik-accent);
+  --yesil: var(--acik-ok);
+  --vurgu: var(--acik-err);
+}
+/* İnce yazı projeksiyonda kaybolur: hafif kalınlaştır */
+.reveal .slides { color: #000; -webkit-text-stroke: 0.35px currentColor; }
+.reveal .slides h1, .reveal .slides h2, .reveal .slides h3 { -webkit-text-stroke: 0.6px currentColor; }
+.reveal .slides .katex { -webkit-text-stroke: 0.3px currentColor; }
+.reveal .slides .c-kutu, .reveal .slides .c-kutu * { -webkit-text-stroke: 0; }
+.reveal h2 { border-bottom-color: #9fb4cc; }
+
+/* Küçük ve gri yazılar daha büyük ve koyu */
+.reveal small, .reveal .kucuk { font-size: 0.84em; color: var(--gri); }
+.reveal .kaynak { font-size: 0.7em; }
+.reveal .etiket { font-size: 0.62em; }
+.reveal pre { font-size: 0.7em; }
+.reveal pre code { color: #000; border-color: #9fb0c3; }
+.reveal pre.yalanci-kod code { background: #fbf8ea; border-color: #c9b98a; }
+.reveal code { background: #e3e9f1; color: #000; }
+
+/* Kutular: daha belirgin kenar ve başlık */
+.reveal .kutu { border-width: 1.5px; border-left-width: 8px; }
+.reveal .kutu .kutu-baslik { font-weight: 700; -webkit-text-stroke: 0.5px currentColor; }
+.reveal .kutu.teorem { --k: #5a1388; --kk: #c4a8dc; }
+.reveal .kutu.ispat { --k: #2f3b47; --kk: #b9c0c7; }
+.reveal .kutu.soru { --k: #8f5200; --kk: #e2c48d; }
+.reveal .kutu.ipucu { --k: #006a74; --kk: #93ccd2; }
+
+/* Tablolar */
+.reveal table { font-size: 0.86em; }
+.reveal table th, .reveal table td { border-color: #8ea3bb; }
+.reveal table th { background: #dce6f2; color: #0a2240; }
+
+/* Kod editörü: büyük ve net yazı */
+.c-kod .cm-editor { font-size: 19px; }
+.c-cikti { font-size: 16px; }
+.c-girdi { font-size: 16px; }
+.c-arac { font-size: 16px; }
+
+/* Vize hazırlık panelleri */
+.reveal .vize-govde > div { font-size: 0.66em; }
+
+/* ======================================================================
+   Yüksek kontrast modu (K tuşu): koyu zemin, açık yazı.
+   Slayt alanı ton koruyarak tersine çevrilir (SVG'ler ve kutular dahil);
+   zaten koyu olan kod editörleri yeniden çevrilerek olduğu gibi kalır.
+   ====================================================================== */
+html.yuksek-kontrast, html.yuksek-kontrast body, html.yuksek-kontrast .reveal { background: #000 !important; }
+html.yuksek-kontrast .reveal .slides { filter: invert(1) hue-rotate(180deg) contrast(1.15); }
+html.yuksek-kontrast .reveal .slides .c-kutu { filter: invert(1) hue-rotate(180deg) contrast(0.87); }
+html.yuksek-kontrast .reveal .slides { -webkit-text-stroke: 0.2px currentColor; }
+html.yuksek-kontrast .reveal .controls, html.yuksek-kontrast .reveal .progress { color: #9cc4ff; }
+html.yuksek-kontrast .reveal .slide-number { background: #222; color: #fff; }
+html.yuksek-kontrast .ders-ust a, html.yuksek-kontrast .ders-ust button { background: #111; color: #ddd; border-color: #555; }
+.ders-ust { display: flex; gap: 6px; }
+.ders-ust button { font: inherit; font-size: 15px; color: var(--gri); background: rgba(255,255,255,0.85); padding: 2px 8px; border-radius: 4px; border: 1px solid #dde3ea; cursor: pointer; }
+.ders-ust button:hover { color: var(--mavi); }
+
+/* Kod editörü: girdi kutusu sınırsız (fareyle) büyütülebilir; kod ile panel arası sürüklenebilir ayırıcı */
+.c-yan { flex: 0 0 40%; }
+.c-girdi { max-height: none; resize: vertical; }
+.c-ayirac { display: none; flex: 0 0 7px; cursor: col-resize; background: #2c313a; touch-action: none; position: relative; }
+.c-ayirac::after { content: ""; position: absolute; left: 2px; right: 2px; top: 50%; height: 36px; margin-top: -18px; border-left: 1px dotted #8b93a1; border-right: 1px dotted #8b93a1; }
+.c-ayirac:hover, .c-ayirac.surukleniyor { background: #4b6a9b; }
+.c-kutu.cikti-acik .c-ayirac, #c-buyuk-katman .c-ayirac { display: block; }
+#c-buyuk-katman .c-girdi { max-height: none; }
+
+/* Destenin sonundaki gezinme slaytı (ders.js sonSlayt) */
+.reveal .son-slayt h2 { text-align: center; margin-top: 160px; }
+.reveal .son-baglar { display: flex; justify-content: center; gap: 28px; margin-top: 60px; flex-wrap: wrap; }
+.reveal .son-baglar a.son-bag { font-size: 34px; font-weight: 600; padding: 14px 30px; border: 3px solid var(--acik-accent); border-radius: 12px; color: var(--acik-accent); text-decoration: none; }
+.reveal .son-baglar a.son-bag.ana { background: var(--acik-accent); color: #fff; }
+.reveal .son-baglar a.son-bag:hover { filter: brightness(1.15); }

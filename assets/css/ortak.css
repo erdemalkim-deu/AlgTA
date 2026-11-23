@@ -1,0 +1,81 @@
+/* =====================================================================
+   DERS ORTAK TEMELİ — renkler ve projeksiyon okunurluğu
+   Asıl dosya: ~/.claude/ders-tasarim/ortak.css
+   Derslerdeki kopyaları uygula.py yazar; kopyada değişiklik yapmayın.
+
+   Ortak değişkenler (her ders bunları kullanır, kendisi tanımlamaz):
+     --bg --panel --ink --muted --rule --accent --ok --err
+     --accent-ink --ok-bg --err-bg   (düğme yazısı, doğru/yanlış kutu zeminleri)
+     --cizgi --cizgi-kalin   (kenarlık kalınlıkları)
+   Derse özgü renkler (ör. CompA --sage/--c, DDesign --g0..g5) dersin
+   kendi CSS'inde kalır. Koyu teması olmayan dersler (AaT) koyu temada
+   değişmeyen --acik-* sabitlerini kullanır.
+
+   Kontrast hedefi (zemine karşı): ana metin ≥ 15, ikincil metin ≥ 9,
+   vurgu ve durum renkleri ≥ 6. Açık renkli, ince yazı projeksiyonda
+   kaybolduğu için yazı hafifçe kalınlaştırılır.
+   ===================================================================== */
+:root {
+  --acik-ink: #0b101c;
+  --acik-muted: #333c4c;
+  --acik-rule: #6f7a8c;
+  --acik-accent: #0d58a0;
+  --acik-ok: #0f5a33;
+  --acik-err: #9c1c16;
+  --bg: #fafbfc;
+  --panel: #ffffff;
+  --ink: var(--acik-ink);
+  --muted: var(--acik-muted);
+  --rule: var(--acik-rule);
+  --accent: var(--acik-accent);
+  --ok: var(--acik-ok);
+  --err: var(--acik-err);
+  --accent-ink: #ffffff;    /* vurgu zemini üzerindeki yazı (düğmeler) */
+  --ok-bg: #e3f4ea;         /* doğru cevap kutusu zemini */
+  --err-bg: #fde8e6;        /* yanlış cevap kutusu zemini */
+  --cizgi: 2px;
+  --cizgi-kalin: 3px;
+  --yazi-kalin: 0.3px;      /* metne eklenen kontur */
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #10141b;
+    --panel: #0b0e13;
+    --ink: #f1f4f9;
+    --muted: #c3ccda;
+    --rule: #7e8ba0;
+    --accent: #7db6ea;
+    --ok: #6fcf97;
+    --err: #f08a80;
+    --accent-ink: #0b0e13;
+    --ok-bg: #12301f;
+    --err-bg: #3a1714;
+    --yazi-kalin: 0.15px;
+    color-scheme: dark;
+  }
+}
+
+/* İnce yazı projeksiyonda kaybolur: hafif kalınlaştır.
+   Kod editörleri ve terminaller hariç (eş aralıklı yazı bulanıklaşır). */
+.reveal .slides { -webkit-text-stroke: var(--yazi-kalin) currentColor; }
+.reveal .slides h1, .reveal .slides h2, .reveal .slides h3 { -webkit-text-stroke: calc(var(--yazi-kalin) * 2) currentColor; }
+.reveal .slides :is(pre, textarea, .CodeMirror, .cm-editor, .c-kutu, .kontrast-haric),
+.reveal .slides :is(pre, textarea, .CodeMirror, .cm-editor, .c-kutu, .kontrast-haric) * { -webkit-text-stroke: 0; }
+
+/* Başlık çizgisi (CompA ve DDesign .head kullanır) */
+.reveal .head { border-bottom: var(--cizgi-kalin) solid var(--ink); }
+
+/* =====================================================================
+   YÜKSEK KONTRAST MODU (K tuşu, ortak.js): siyah zemin, açık yazı.
+   Slayt alanı ton korunarak tersine çevrilir; böylece sabit renkli SVG'ler
+   ve kutular da koyu zemine uyar. Fotoğraflar ve zaten koyu olan öğeler
+   (.kontrast-haric ve dersin kendi listesi) yeniden çevrilip olduğu gibi kalır.
+   ortak.js modu açarken data-theme="light" koyar: işletim sistemi koyu
+   temadaysa da önce açık tema çizilir, sonra çevrilir.
+   ===================================================================== */
+html.yuksek-kontrast, html.yuksek-kontrast body, html.yuksek-kontrast .reveal { background: #000 !important; }
+html.yuksek-kontrast .reveal .slides { filter: invert(1) hue-rotate(180deg) contrast(1.15); }
+html.yuksek-kontrast .reveal .slides :is(img, video, .kontrast-haric) { filter: invert(1) hue-rotate(180deg); }
+html.yuksek-kontrast .reveal .controls, html.yuksek-kontrast .reveal .progress { color: #9cc4ff; }
+html.yuksek-kontrast .reveal .slide-number { background: #222; color: #fff; }
